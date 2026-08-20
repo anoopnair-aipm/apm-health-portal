@@ -4,18 +4,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>APM Health Portal — Lorum Ipsum Inc.</title>
-<meta name="description" content="Executive dashboard for per-customer relationship health scores, incidents, concerns, and trends across a banking-software vendor's portfolio." />
+<meta name="description" content="Executive dashboard for per-APM relationship health scores, incidents, concerns, and trends across a banking-software vendor's portfolio." />
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="APM Health Portal" />
-<meta property="og:description" content="Executive view of per-customer health scores, incidents, concerns & trends across the entire portfolio." />
+<meta property="og:description" content="Executive view of per-APM health scores, incidents, concerns & trends across the entire portfolio." />
 <meta property="og:url" content="https://anoopnair-aipm.github.io/apm-health-portal/" />
 <meta property="og:image" content="https://anoopnair-aipm.github.io/apm-health-portal/docs/social-preview.png" />
 <meta property="og:image:width" content="1280" />
 <meta property="og:image:height" content="640" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="APM Health Portal" />
-<meta name="twitter:description" content="Executive view of per-customer health scores, incidents, concerns & trends across the entire portfolio." />
+<meta name="twitter:description" content="Executive view of per-APM health scores, incidents, concerns & trends across the entire portfolio." />
 <meta name="twitter:image" content="https://anoopnair-aipm.github.io/apm-health-portal/docs/social-preview.png" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -260,7 +260,7 @@
   <aside class="sidebar">
     <div class="logo">
       <div class="mark">◆</div>
-      <div><b>Lorum Ipsum Inc.</b><small>Customer Success Portal</small></div>
+      <div><b>Lorum Ipsum Inc.</b><small>APM Success Portal</small></div>
     </div>
     <nav class="nav" id="nav">
       <a data-view="overview"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>Overview</a>
@@ -270,14 +270,14 @@
       <a data-view="generic" data-title="Risk & Alerts"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg>Risk &amp; Alerts</a>
       <a data-view="generic" data-title="Engagement Timeline"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Engagement Timeline</a>
       <a data-view="generic" data-title="Value Realization"><svg viewBox="0 0 24 24"><path d="M4 19V5M20 19H4M8 15l3-4 3 2 4-6"/></svg>Value Realization</a>
-      <div class="nav-sec">Customer Management</div>
-      <a data-view="customers"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="18" cy="9" r="2"/></svg>Customers</a>
+      <div class="nav-sec">APM Management</div>
+      <a data-view="customers"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="18" cy="9" r="2"/></svg>APMs</a>
       <a data-view="generic" data-title="Segments"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>Segments</a>
       <a data-view="generic" data-title="Contacts"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="10" r="2"/><path d="M8 17c0-2 2-3 4-3s4 1 4 3"/></svg>Contacts</a>
       <a data-view="generic" data-title="Notes & Activities"><svg viewBox="0 0 24 24"><path d="M5 4h14v13l-4 3H5z"/><path d="M9 9h6M9 13h4"/></svg>Notes &amp; Activities</a>
       <div class="nav-sec">Support &amp; Success</div>
       <a data-view="incidents"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4"/></svg>Incidents</a>
-      <a data-view="concerns"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 11-3-6l3-1-1 3"/></svg>Customer Concerns</a>
+      <a data-view="concerns"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 11-3-6l3-1-1 3"/></svg>APM Concerns</a>
       <a data-view="generic" data-title="Product Feedback"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4z"/></svg>Product Feedback</a>
       <a data-view="generic" data-title="Success Plans"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7H4V5h11"/></svg>Success Plans</a>
       <div class="nav-sec">Reports</div>
@@ -305,12 +305,12 @@
 
     <div class="content">
       <div class="page-head">
-        <h1 id="pageTitle">Customer Relationship Health Dashboard <span class="i-dot"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg></span></h1>
+        <h1 id="pageTitle">APM Relationship Health Dashboard <span class="i-dot"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg></span></h1>
         <div class="actions">
           <div class="export-wrap">
             <button class="btn" id="exportBtn"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4"/><path d="M4 21h16"/></svg>Export Report <svg viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M6 9l6 6 6-6"/></svg></button>
             <div class="menu" id="exportMenu" hidden>
-              <div class="mhd" id="exportScope">Current customer</div>
+              <div class="mhd" id="exportScope">Current APM</div>
               <button data-export="pdf"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 14h6M9 17h4"/></svg>Download PDF</button>
               <button data-export="csv"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M8 13h2v4H8zM14 13h2v4h-2z"/></svg>Download CSV</button>
             </div>
@@ -373,7 +373,7 @@
               </div></div>
 
               <div class="card"><div class="bd">
-                <div class="hd" style="padding:0"><h3>Open Customer Concerns <span class="i-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg></span></h3></div>
+                <div class="hd" style="padding:0"><h3>Open APM Concerns <span class="i-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg></span></h3></div>
                 <div class="bignum" id="oc-num" style="margin-top:12px;color:var(--alert)">--</div>
                 <div class="trendline" style="margin-top:52px">Trend (vs last 30 days) <span id="oc-trend"></span></div>
               </div></div>
@@ -403,7 +403,7 @@
                   <a class="tablink" data-goto="incidents">View all incidents</a>
                 </div>
               </div>
-              <div class="card"><div class="hd"><h3>Recent Customer Concerns</h3></div>
+              <div class="card"><div class="hd"><h3>Recent APM Concerns</h3></div>
                 <div class="bd" style="padding-top:6px">
                   <table><thead><tr><th>ID</th><th>Concern</th><th>Raised By</th><th>Raised On</th><th>Status</th></tr></thead>
                   <tbody id="concerns"></tbody></table>
@@ -429,7 +429,7 @@
 
       <!-- CUSTOMERS VIEW -->
       <div class="view" id="view-customers" hidden>
-        <div class="card"><div class="hd"><h3>Customer Portfolio — Ranked by Health</h3><span class="sub" id="portfolio-count"></span></div>
+        <div class="card"><div class="hd"><h3>APM Portfolio — Ranked by Health</h3><span class="sub" id="portfolio-count"></span></div>
           <div class="bd" style="padding-top:6px">
             <table><thead><tr><th>Status</th><th>APM</th><th>Tier</th><th>6-Mo Trend</th><th style="text-align:right">Health</th><th style="text-align:right">Active Incidents</th><th style="text-align:right">Open Concerns</th></tr></thead>
             <tbody id="portfolio"></tbody></table>
@@ -451,7 +451,7 @@
       <!-- CONCERNS VIEW -->
       <div class="view" id="view-concerns" hidden>
         <a class="backlink" data-goto="dashboard">← Back to dashboard</a>
-        <div class="card"><div class="hd"><h3 id="con-title">Customer Concerns</h3></div>
+        <div class="card"><div class="hd"><h3 id="con-title">APM Concerns</h3></div>
           <div class="bd" style="padding-top:6px">
             <table><thead><tr><th>ID</th><th>Concern</th><th>Raised By</th><th>Raised On</th><th>Status</th></tr></thead>
             <tbody id="concerns-full"></tbody></table>
@@ -469,7 +469,7 @@
         <div class="card"><div class="bd placeholder">
           <div class="big">🚧</div>
           <div style="font-size:16px;font-weight:700;color:var(--text)" id="generic-title">Section</div>
-          <p style="max-width:420px;margin:10px auto 0">This section is a placeholder in the prototype. The Health Dashboard, Customers, Incidents, and Customer Concerns views are fully wired to the sample data.</p>
+          <p style="max-width:420px;margin:10px auto 0">This section is a placeholder in the prototype. The Health Dashboard, APMs, Incidents, and APM Concerns views are fully wired to the sample data.</p>
         </div></div>
       </div>
     </div>
@@ -531,7 +531,7 @@ function renderDashboard(){
   const score=d._score, b=band(score);
 
   document.getElementById('meta').innerHTML =
-    metaCell('Customer Since',d.since)+metaCell('Account Owner',d.owner)+metaCell('Customer Tier',d.tier)+metaCell('Region',d.region);
+    metaCell('APM Since',d.since)+metaCell('Account Owner',d.owner)+metaCell('APM Tier',d.tier)+metaCell('Region',d.region);
   document.getElementById('updated').innerHTML =
     'Last Updated: '+d.updated+' <svg viewBox="0 0 24 24" title="Refresh"><path d="M21 12a9 9 0 11-3-6.7L21 8"/><path d="M21 4v4h-4"/></svg>';
 
@@ -621,7 +621,7 @@ function renderScoreChart(d){
 // ---------------- Other views ----------------
 function renderCustomers(){
   const rows=Object.values(CUST).slice().sort((a,b)=>b._score-a._score);
-  document.getElementById('portfolio-count').textContent=rows.length+' customers';
+  document.getElementById('portfolio-count').textContent=rows.length+' APMs';
   document.getElementById('portfolio').innerHTML=rows.map(d=>{
     const b=band(d._score);
     return '<tr class="rowlink" data-select="'+d.id+'"><td><span class="pill" style="background:'+hexA(b.color,.13)+';color:'+b.color+'"><span class="dot" style="background:'+b.color+'"></span>'+b.label+'</span></td>'+
@@ -634,12 +634,12 @@ function renderCustomers(){
 function renderIncidentsView(){
   const d=CUST[currentId];
   document.getElementById('inc-title').textContent='Active Incidents — '+d.name+' ('+d.incidentList.length+')';
-  document.getElementById('incidents-full').innerHTML=d.incidentList.map(incidentRow).join('')||emptyRow(5,'No active incidents for this customer');
+  document.getElementById('incidents-full').innerHTML=d.incidentList.map(incidentRow).join('')||emptyRow(5,'No active incidents for this APM');
 }
 function renderConcernsView(){
   const d=CUST[currentId];
-  document.getElementById('con-title').textContent='Customer Concerns — '+d.name+' ('+d.concernList.length+')';
-  document.getElementById('concerns-full').innerHTML=d.concernList.map(concernRow).join('')||emptyRow(5,'No open concerns for this customer');
+  document.getElementById('con-title').textContent='APM Concerns — '+d.name+' ('+d.concernList.length+')';
+  document.getElementById('concerns-full').innerHTML=d.concernList.map(concernRow).join('')||emptyRow(5,'No open concerns for this APM');
 }
 
 function renderOverview(){
@@ -676,14 +676,14 @@ function renderOverview(){
     return '<tr class="rowlink" data-select="'+d.id+'"><td><span class="pill" style="background:'+hexA(b.color,.13)+';color:'+b.color+'"><span class="dot" style="background:'+b.color+'"></span>'+b.label+'</span></td>'+
       '<td><b>'+d.name+'</b></td><td>'+sparkline(d._series,b.color)+'</td><td style="text-align:right"><span class="score-pill" style="background:'+b.color+'">'+d._score+'</span></td>'+
       '<td style="text-align:right">'+d.incidents+'</td><td style="text-align:right">'+d.concerns+'</td></tr>';
-  }).join('') : emptyRow(6,'All customers are Healthy or Watchful 🎉');
+  }).join('') : emptyRow(6,'All APMs are Healthy or Watchful 🎉');
 
   document.getElementById('view-overview').innerHTML =
     '<div style="display:flex;flex-direction:column;gap:18px">'+
       '<div class="kpirow" style="grid-template-columns:repeat(5,1fr)">'+
-        stat('Total Customers',n,'var(--text)','Active relationships')+
+        stat('Total APMs',n,'var(--text)','Active relationships')+
         stat('Avg Health Score',avg,ab.color,ab.label+' overall')+
-        stat('Customers At Risk',atRisk,atRisk?getCss('--alert'):getCss('--healthy'),'Alert or Poor band')+
+        stat('APMs At Risk',atRisk,atRisk?getCss('--alert'):getCss('--healthy'),'Alert or Poor band')+
         stat('Active Incidents',incidents,getCss('--poor'),'Across portfolio')+
         stat('Open Concerns',concerns,getCss('--alert'),'Awaiting resolution')+
       '</div>'+
@@ -691,7 +691,7 @@ function renderOverview(){
         '<div class="card"><div class="hd"><h3>Health Distribution</h3></div><div class="bd ov-dist">'+dist+
           '<div style="margin-top:16px;color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;font-weight:600">Top Performers</div>'+topHtml+
         '</div></div>'+
-        '<div class="card"><div class="hd"><h3>Customers Needing Attention</h3><span class="sub">'+attention.length+' below 80</span></div>'+
+        '<div class="card"><div class="hd"><h3>APMs Needing Attention</h3><span class="sub">'+attention.length+' below 80</span></div>'+
           '<div class="bd" style="padding-top:6px"><table><thead><tr><th>Status</th><th>APM</th><th>6-Mo Trend</th><th style="text-align:right">Health</th><th style="text-align:right">Active Incidents</th><th style="text-align:right">Open Concerns</th></tr></thead><tbody>'+attRows+'</tbody></table></div>'+
         '</div>'+
       '</div>'+
@@ -699,7 +699,7 @@ function renderOverview(){
 }
 
 // ---------------- View switching ----------------
-const PAGE_TITLES={overview:'Portfolio Overview',dashboard:'Customer Relationship Health Dashboard',customers:'Customer Portfolio',incidents:'Incidents',concerns:'Customer Concerns'};
+const PAGE_TITLES={overview:'Portfolio Overview',dashboard:'APM Relationship Health Dashboard',customers:'APM Portfolio',incidents:'Incidents',concerns:'APM Concerns'};
 const NO_SELECT=['overview','customers','generic'];
 function showView(view,genericTitle){
   currentView=view;
@@ -770,16 +770,16 @@ function exportCSV(){
     download(toCSV(rows),'portfolio-health-'+today()+'.csv','text/csv;charset=utf-8');
   }else{
     const d=CUST[currentId];const rows=[];
-    rows.push(['Customer Relationship Health Report']);
+    rows.push(['APM Relationship Health Report']);
     rows.push(['APM',d.name]);rows.push(['Tier',d.tier]);rows.push(['Region',d.region]);
-    rows.push(['Account Owner',d.owner]);rows.push(['Customer Since',d.since]);rows.push(['Last Updated',d.updated]);
+    rows.push(['Account Owner',d.owner]);rows.push(['APM Since',d.since]);rows.push(['Last Updated',d.updated]);
     rows.push(['Health Score',d._score]);rows.push(['Status',band(d._score).label]);
     rows.push(['Active Incidents',d.incidents]);rows.push(['Open Concerns',d.concerns]);
     rows.push([]);rows.push(['Health Score Breakdown','Score']);
     d.breakdown.forEach(([k,v])=>rows.push([k,v]));
     rows.push([]);rows.push(['Active Incidents']);rows.push(['ID','Severity','Title','Status','Opened On']);
     (d.incidentList.length?d.incidentList:[['—','—','No active incidents','—','—']]).forEach(r=>rows.push(r));
-    rows.push([]);rows.push(['Customer Concerns']);rows.push(['ID','Concern','Raised By','Raised On','Status']);
+    rows.push([]);rows.push(['APM Concerns']);rows.push(['ID','Concern','Raised By','Raised On','Status']);
     (d.concernList.length?d.concernList:[['—','No open concerns','—','—','—']]).forEach(r=>rows.push(r));
     download(toCSV(rows),'health-report-'+slug(d.name)+'-'+today()+'.csv','text/csv;charset=utf-8');
   }
@@ -792,11 +792,11 @@ function exportPDF(){
   const M=40;let y=48;
   const gen='Generated '+new Date().toLocaleString();
   if(portfolioContext()){
-    doc.setFont('helvetica','bold');doc.setFontSize(18);doc.text('Customer Portfolio Health Report',M,y);
+    doc.setFont('helvetica','bold');doc.setFontSize(18);doc.text('APM Portfolio Health Report',M,y);
     doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(120);doc.text('Lorum Ipsum Inc.  ·  '+gen,M,y+18);doc.setTextColor(0);
     const rows=Object.values(CUST).slice().sort((a,b)=>b._score-a._score);
     const avg=Math.round(rows.reduce((s,d)=>s+d._score,0)/rows.length);
-    doc.setFontSize(11);doc.text('Customers: '+rows.length+'      Average Health: '+avg+' ('+band(avg).label+')',M,y+40);
+    doc.setFontSize(11);doc.text('APMs: '+rows.length+'      Average Health: '+avg+' ('+band(avg).label+')',M,y+40);
     doc.autoTable({startY:y+54,head:[['APM','Tier','Health','Status','Active Incidents','Open Concerns']],
       body:rows.map(d=>[d.name,d.tier,String(d._score),band(d._score).label,String(d.incidents),String(d.concerns)]),
       styles:{fontSize:9,cellPadding:5},headStyles:{fillColor:[37,99,235]},
@@ -804,7 +804,7 @@ function exportPDF(){
     doc.save('portfolio-health-'+today()+'.pdf');
   }else{
     const d=CUST[currentId],b=band(d._score),rgb=hexToRgb(b.color);
-    doc.setFont('helvetica','bold');doc.setFontSize(18);doc.text('Customer Relationship Health Report',M,y);
+    doc.setFont('helvetica','bold');doc.setFontSize(18);doc.text('APM Relationship Health Report',M,y);
     doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(120);doc.text(d.name+'  ·  '+gen,M,y+20);doc.setTextColor(0);
     y+=46;
     doc.setFont('helvetica','bold');doc.setFontSize(36);doc.setTextColor(rgb[0],rgb[1],rgb[2]);doc.text(String(d._score),M,y+8);
@@ -814,7 +814,7 @@ function exportPDF(){
     doc.text('Open Concerns: '+d.concerns,M+78,y+24);
     y+=34;
     doc.autoTable({startY:y,head:[['Account','Detail']],
-      body:[['Tier',d.tier],['Region',d.region],['Account Owner',d.owner],['Customer Since',d.since],['Last Updated',d.updated]],
+      body:[['Tier',d.tier],['Region',d.region],['Account Owner',d.owner],['APM Since',d.since],['Last Updated',d.updated]],
       styles:{fontSize:9,cellPadding:4},headStyles:{fillColor:[37,99,235]},columnStyles:{0:{cellWidth:150,fontStyle:'bold'}}});
     doc.autoTable({startY:doc.lastAutoTable.finalY+14,head:[['Health Score Breakdown','Score']],
       body:d.breakdown.map(([k,v])=>[k,String(v)]),styles:{fontSize:9,cellPadding:4},headStyles:{fillColor:[37,99,235]},columnStyles:{1:{halign:'right',cellWidth:70}}});
@@ -959,7 +959,7 @@ load();
   <div class="chat-body" id="chatBody"></div>
   <div class="chat-sugg" id="chatSugg"></div>
   <form class="chat-input" id="chatForm">
-    <input id="chatInput" type="text" autocomplete="off" placeholder="Ask about a customer or the portfolio…" />
+    <input id="chatInput" type="text" autocomplete="off" placeholder="Ask about an APM or the portfolio…" />
     <button type="submit" id="chatSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
   </form>
 </div>
@@ -1001,13 +1001,13 @@ load();
     // ---- portfolio-wide intents ----
     if(/(at risk|at-risk|need.*attention|struggling|unhealthy|poorly)/.test(q)){
       const risk=portfolio.filter(x=>x._score<80).sort((a,b)=>a._score-b._score);
-      if(!risk.length) return "Good news — no customers are currently at risk. Every account is Healthy or Watchful.";
-      return risk.length+" customer"+(risk.length>1?'s are':' is')+" at risk (Alert or Poor):<ul>"+
+      if(!risk.length) return "Good news — no APMs are currently at risk. Every account is Healthy or Watchful.";
+      return risk.length+" APM"+(risk.length>1?'s are':' is')+" at risk (Alert or Poor):<ul>"+
         risk.map(x=>'<li><b>'+esc(x.name)+'</b> — '+pill(x._score)+'</li>').join('')+"</ul>";
     }
     if(/(average|avg|mean|overall).*(score|health)|health.*(average|avg)/.test(q)){
       const avg=Math.round(portfolio.reduce((s,x)=>s+x._score,0)/portfolio.length);
-      return "The average health score across all "+portfolio.length+" customers is "+pill(avg)+".";
+      return "The average health score across all "+portfolio.length+" APMs is "+pill(avg)+".";
     }
     if(/(top|best|healthiest|strongest)/.test(q)){
       const top=[...portfolio].sort((a,b)=>b._score-a._score).slice(0,3);
@@ -1015,16 +1015,16 @@ load();
     }
     if(/(worst|lowest|weakest|bottom)/.test(q)){
       const bot=[...portfolio].sort((a,b)=>a._score-b._score).slice(0,3);
-      return "Lowest scoring customers:<ul>"+bot.map((x,i)=>'<li>'+(i+1)+'. <b>'+esc(x.name)+'</b> — '+pill(x._score)+'</li>').join('')+"</ul>";
+      return "Lowest scoring APMs:<ul>"+bot.map((x,i)=>'<li>'+(i+1)+'. <b>'+esc(x.name)+'</b> — '+pill(x._score)+'</li>').join('')+"</ul>";
     }
     if(/(rank|ranking|order|list all|all customers|every customer)/.test(q) && !named){
       const r=[...portfolio].sort((a,b)=>b._score-a._score);
-      return "All customers ranked by health:<ul>"+r.map((x,i)=>'<li>'+(i+1)+'. <b>'+esc(x.name)+'</b> — '+pill(x._score)+'</li>').join('')+"</ul>";
+      return "All APMs ranked by health:<ul>"+r.map((x,i)=>'<li>'+(i+1)+'. <b>'+esc(x.name)+'</b> — '+pill(x._score)+'</li>').join('')+"</ul>";
     }
     if(/distribution|how many (are )?(healthy|watchful|alert|poor)|by band|breakdown of (the )?portfolio/.test(q)){
       const counts={Healthy:0,Watchful:0,Alert:0,Poor:0};
       portfolio.forEach(x=>counts[band(x._score).label]++);
-      return "Health distribution across "+portfolio.length+" customers:<ul>"+
+      return "Health distribution across "+portfolio.length+" APMs:<ul>"+
         Object.entries(counts).map(([k,v])=>'<li><b>'+k+'</b>: '+v+'</li>').join('')+"</ul>";
     }
     if(/(total|all|combined|how many).*(incident)/.test(q) && !named){
@@ -1036,7 +1036,7 @@ load();
       return "There are <b>"+t+" open concerns</b> across the whole portfolio.";
     }
     if(/how many customers|number of customers|total customers/.test(q)){
-      return "There are <b>"+portfolio.length+"</b> active customers in the portfolio.";
+      return "There are <b>"+portfolio.length+"</b> active APMs in the portfolio.";
     }
     // compare A and B
     if(/(compare|versus|vs\.? |vs$)/.test(q)){
@@ -1048,7 +1048,7 @@ load();
     }
 
     // ---- single-customer intents (about `c`) ----
-    const who = named ? c.name : "the currently selected customer, "+c.name;
+    const who = named ? c.name : "the currently selected APM, "+c.name;
     // sub-score
     const subMap=[['product satisfaction','Product Satisfaction'],['support','Support Experience'],['service','Service Reliability'],['reliability','Service Reliability'],['implementation','Implementation Success'],['value','Value Realization'],['relationship','Relationship Strength']];
     for(const [kw,label] of subMap){
@@ -1114,9 +1114,9 @@ load();
     if(/(contract value|acv|revenue|worth|deal size|how much)/.test(q)){
       const v=glanceVal(c,'contract'); return v?(c.name+"'s contract value is <b>"+esc(v)+"</b>."):("No contract value on file for "+c.name+".");
     }
-    if(/(tier|segment)/.test(q)){ return c.name+" is a <b>"+esc(c.tier)+"</b> tier customer."; }
+    if(/(tier|segment)/.test(q)){ return c.name+" is a <b>"+esc(c.tier)+"</b> tier APM."; }
     if(/(region|located|where)/.test(q)){ return c.name+" is in the <b>"+esc(c.region)+"</b> region."; }
-    if(/(since|how long|customer for|start|onboard)/.test(q)){ return c.name+" has been a customer since <b>"+esc(c.since)+"</b>."; }
+    if(/(since|how long|customer for|start|onboard)/.test(q)){ return c.name+" has been an APM since <b>"+esc(c.since)+"</b>."; }
     if(/(trend|improving|declining|getting better|getting worse|direction|trajectory)/.test(q)){
       const d=c.scoreTrend; const w=d>0?'improving':d<0?'declining':'holding steady';
       return c.name+"'s health score is <b>"+w+"</b> — "+trendWord(d)+" over the last 30 days. Current score: "+pill(c._score)+".";
@@ -1127,7 +1127,7 @@ load();
       return c.name+"'s current health score is "+pill(c._score)+" ("+trendWord(c.scoreTrend)+" vs last 30 days). It has "+c.incidents+" active incident"+(c.incidents===1?'':'s')+" and "+c.concerns+" open concern"+(c.concerns===1?'':'s')+".";
     }
 
-    return "I'm not sure how to answer that from the dashboard data. Try asking about a health score, incidents, concerns, contacts, or portfolio-wide questions like \"which customers are at risk?\"";
+    return "I'm not sure how to answer that from the dashboard data. Try asking about a health score, incidents, concerns, contacts, or portfolio-wide questions like \"which APMs are at risk?\"";
   }
 
   // ---- UI wiring ----
@@ -1136,7 +1136,7 @@ load();
         input=document.getElementById('chatInput'), sugg=document.getElementById('chatSugg'),
         closeBtn=document.getElementById('chatClose');
   let greeted=false;
-  const SUGGESTIONS=["Which customers are at risk?","Score history","High-severity incidents?","Email the account owner"];
+  const SUGGESTIONS=["Which APMs are at risk?","Score history","High-severity incidents?","Email the account owner"];
 
   function addMsg(text,cls){
     const d=document.createElement('div'); d.className='msg '+cls; d.innerHTML=text; body.appendChild(d);
@@ -1158,7 +1158,7 @@ load();
     panel.classList.add('open'); fab.style.display='none';
     if(!greeted){ greeted=true;
       const c=CUST[currentId];
-      addMsg("Hi! I'm your Relationship Assistant. I can answer questions about <b>"+esc(c?c.name:'the selected customer')+"</b> or the whole portfolio — using the live dashboard data. What would you like to know?",'bot');
+      addMsg("Hi! I'm your Relationship Assistant. I can answer questions about <b>"+esc(c?c.name:'the selected APM')+"</b> or the whole portfolio — using the live dashboard data. What would you like to know?",'bot');
       renderSugg();
     }
     setTimeout(()=>input.focus(),200);

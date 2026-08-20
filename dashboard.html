@@ -431,7 +431,7 @@
       <div class="view" id="view-customers" hidden>
         <div class="card"><div class="hd"><h3>Customer Portfolio — Ranked by Health</h3><span class="sub" id="portfolio-count"></span></div>
           <div class="bd" style="padding-top:6px">
-            <table><thead><tr><th>Status</th><th>Customer</th><th>Tier</th><th>6-Mo Trend</th><th style="text-align:right">Health</th><th style="text-align:right">Active Incidents</th><th style="text-align:right">Open Concerns</th></tr></thead>
+            <table><thead><tr><th>Status</th><th>APM</th><th>Tier</th><th>6-Mo Trend</th><th style="text-align:right">Health</th><th style="text-align:right">Active Incidents</th><th style="text-align:right">Open Concerns</th></tr></thead>
             <tbody id="portfolio"></tbody></table>
           </div>
         </div>
@@ -692,7 +692,7 @@ function renderOverview(){
           '<div style="margin-top:16px;color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;font-weight:600">Top Performers</div>'+topHtml+
         '</div></div>'+
         '<div class="card"><div class="hd"><h3>Customers Needing Attention</h3><span class="sub">'+attention.length+' below 80</span></div>'+
-          '<div class="bd" style="padding-top:6px"><table><thead><tr><th>Status</th><th>Customer</th><th>6-Mo Trend</th><th style="text-align:right">Health</th><th style="text-align:right">Active Incidents</th><th style="text-align:right">Open Concerns</th></tr></thead><tbody>'+attRows+'</tbody></table></div>'+
+          '<div class="bd" style="padding-top:6px"><table><thead><tr><th>Status</th><th>APM</th><th>6-Mo Trend</th><th style="text-align:right">Health</th><th style="text-align:right">Active Incidents</th><th style="text-align:right">Open Concerns</th></tr></thead><tbody>'+attRows+'</tbody></table></div>'+
         '</div>'+
       '</div>'+
     '</div>';
@@ -765,13 +765,13 @@ function hexToRgb(hex){const h=hex.replace('#','');return [parseInt(h.substr(0,2
 
 function exportCSV(){
   if(portfolioContext()){
-    const rows=[['Customer','Tier','Health Score','Status','Active Incidents','Open Concerns']];
+    const rows=[['APM','Tier','Health Score','Status','Active Incidents','Open Concerns']];
     Object.values(CUST).slice().sort((a,b)=>b._score-a._score).forEach(d=>rows.push([d.name,d.tier,d._score,band(d._score).label,d.incidents,d.concerns]));
     download(toCSV(rows),'portfolio-health-'+today()+'.csv','text/csv;charset=utf-8');
   }else{
     const d=CUST[currentId];const rows=[];
     rows.push(['Customer Relationship Health Report']);
-    rows.push(['Customer',d.name]);rows.push(['Tier',d.tier]);rows.push(['Region',d.region]);
+    rows.push(['APM',d.name]);rows.push(['Tier',d.tier]);rows.push(['Region',d.region]);
     rows.push(['Account Owner',d.owner]);rows.push(['Customer Since',d.since]);rows.push(['Last Updated',d.updated]);
     rows.push(['Health Score',d._score]);rows.push(['Status',band(d._score).label]);
     rows.push(['Active Incidents',d.incidents]);rows.push(['Open Concerns',d.concerns]);
@@ -797,7 +797,7 @@ function exportPDF(){
     const rows=Object.values(CUST).slice().sort((a,b)=>b._score-a._score);
     const avg=Math.round(rows.reduce((s,d)=>s+d._score,0)/rows.length);
     doc.setFontSize(11);doc.text('Customers: '+rows.length+'      Average Health: '+avg+' ('+band(avg).label+')',M,y+40);
-    doc.autoTable({startY:y+54,head:[['Customer','Tier','Health','Status','Active Incidents','Open Concerns']],
+    doc.autoTable({startY:y+54,head:[['APM','Tier','Health','Status','Active Incidents','Open Concerns']],
       body:rows.map(d=>[d.name,d.tier,String(d._score),band(d._score).label,String(d.incidents),String(d.concerns)]),
       styles:{fontSize:9,cellPadding:5},headStyles:{fillColor:[37,99,235]},
       didParseCell:h=>{if(h.section==='body'&&h.column.index===3){const rgb=hexToRgb(band(rows[h.row.index]._score).color);h.cell.styles.textColor=rgb;h.cell.styles.fontStyle='bold';}}});
@@ -920,7 +920,7 @@ async function load(){
   }
   WEIGHTS=DB.scoreWeights; WEEKS=DB.weekLabels; MONTHS6=DB.monthLabels;
   const sel=document.getElementById('customer'); sel.innerHTML='';
-  DB.customers.forEach((c,i)=>{prep(c);c._apm='APM'+(1000001+i);CUST[c.id]=c;const o=document.createElement('option');o.value=c.id;o.textContent=c.name;sel.appendChild(o);});
+  DB.customers.forEach((c,i)=>{prep(c);c._apm='APM'+(1000001+i);c._bankName=c.name;c.name=c._apm;CUST[c.id]=c;const o=document.createElement('option');o.value=c.id;o.textContent=c.name;sel.appendChild(o);});
   currentId=DB.customers[0].id; sel.value=currentId;
   applyMode();
   wireEvents();
@@ -981,6 +981,8 @@ load();
   function pill(score){const b=band(score);return '<span class="m-pill" style="background:'+b.color+'">'+score+'</span> '+b.label;}
   function glanceVal(c,label){const g=(c.glance||[]).find(r=>r[1].toLowerCase().includes(label));return g?g[2]:null;}
   function resolveCustomer(q){
+    const qn=q.replace(/\s+/g,'');
+    for(const c of all()){ if(c._apm && qn.includes(c._apm.toLowerCase())) return c; }
     for(const t of NAME_TOKENS){ if(CUST[t.id] && t.keys.some(k=>q.includes(k))) return CUST[t.id]; }
     return null;
   }
@@ -994,7 +996,7 @@ load();
 
     // help
     if(/^(hi|hello|hey|help|what can you|who are you|how do you)/.test(q) || q==='?')
-      return "I answer questions using this dashboard's live data. Try:\n• \"What's "+c.name+"'s health score?\"\n• \"Which customers are at risk?\"\n• \"Show high-severity incidents\"\n• \"Score history for the last 6 months\"\n• \"Email the account owner\"\n• \"Compare Meridian and Summit\"\n• \"What's the average portfolio score?\"";
+      return "I answer questions using this dashboard's live data. Try:\n• \"What's "+c.name+"'s health score?\"\n• \"Which APMs are at risk?\"\n• \"Show high-severity incidents\"\n• \"Score history for the last 6 months\"\n• \"Email the account owner\"\n• \"Compare APM1000002 and APM1000007\"\n• \"What's the average portfolio score?\"";
 
     // ---- portfolio-wide intents ----
     if(/(at risk|at-risk|need.*attention|struggling|unhealthy|poorly)/.test(q)){

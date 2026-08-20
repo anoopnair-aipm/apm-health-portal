@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>APM Health Portal — Lorum Ipsum Inc.</title>
-<meta name="description" content="Executive dashboard for per-APM relationship health scores, incidents, concerns, and trends across a banking-software vendor's portfolio." />
+<meta name="description" content="Executive dashboard for per-APM health scores, incidents, concerns, and trends across a banking-software vendor's portfolio." />
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="APM Health Portal" />
@@ -264,7 +264,7 @@
     </div>
     <nav class="nav" id="nav">
       <a data-view="overview"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>Overview</a>
-      <div class="nav-sec">Relationship Insights</div>
+      <div class="nav-sec">Insights</div>
       <a data-view="dashboard" class="active"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>Health Dashboard</a>
       <a data-view="generic" data-title="Account Summary"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6"/></svg>Account Summary</a>
       <a data-view="generic" data-title="Risk & Alerts"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg>Risk &amp; Alerts</a>
@@ -305,7 +305,7 @@
 
     <div class="content">
       <div class="page-head">
-        <h1 id="pageTitle">APM Relationship Health Dashboard <span class="i-dot"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg></span></h1>
+        <h1 id="pageTitle">APM Health Dashboard <span class="i-dot"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg></span></h1>
         <div class="actions">
           <div class="export-wrap">
             <button class="btn" id="exportBtn"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4"/><path d="M4 21h16"/></svg>Export Report <svg viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -345,7 +345,7 @@
           <div class="col-main">
             <div class="kpirow">
               <div class="card"><div class="bd">
-                <div class="hd" style="padding:0"><h3>Relationship Health Score <span class="i-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg></span></h3></div>
+                <div class="hd" style="padding:0"><h3>Health Score <span class="i-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg></span></h3></div>
                 <div class="bignum" id="hs-num" style="margin-top:12px">--</div>
                 <div class="status-chip" id="hs-status"><span class="dot"></span><span></span></div>
                 <div class="barwrap">
@@ -589,7 +589,7 @@ function buildInsights(d,score){
   if(d.incidentsTrend>0) out.push(['warn','Incident trend has increased','Address recurring login and performance issues.','View incident insights','incidents']);
   else out.push(['ok','Incidents are trending down','Recent stability improvements are paying off.','View incidents','incidents']);
   if(d.concerns>0) out.push(['info',d.concerns+' open concern'+(d.concerns>1?'s':'')+' need attention','Timely follow-up can improve satisfaction.','View concerns','concerns']);
-  if(d.scoreTrend>0) out.push(['ok','Health score improving','Great job! Continued focus on support and reliability will strengthen the relationship.','','']);
+  if(d.scoreTrend>0) out.push(['ok','Health score improving','Great job! Continued focus on support and reliability will keep the account strong.','','']);
   else out.push(['warn','Health score is declining','Prioritize incident resolution and executive touchpoints to recover trust.','View action plan','']);
   const ICO={warn:'<path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.3"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.3"/>',ok:'<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>'};
   return out.map(([t,title,body,link,goto])=>
@@ -681,7 +681,7 @@ function renderOverview(){
   document.getElementById('view-overview').innerHTML =
     '<div style="display:flex;flex-direction:column;gap:18px">'+
       '<div class="kpirow" style="grid-template-columns:repeat(5,1fr)">'+
-        stat('Total APMs',n,'var(--text)','Active relationships')+
+        stat('Total APMs',n,'var(--text)','Active accounts')+
         stat('Avg Health Score',avg,ab.color,ab.label+' overall')+
         stat('APMs At Risk',atRisk,atRisk?getCss('--alert'):getCss('--healthy'),'Alert or Poor band')+
         stat('Active Incidents',incidents,getCss('--poor'),'Across portfolio')+
@@ -699,7 +699,7 @@ function renderOverview(){
 }
 
 // ---------------- View switching ----------------
-const PAGE_TITLES={overview:'Portfolio Overview',dashboard:'APM Relationship Health Dashboard',customers:'APM Portfolio',incidents:'Incidents',concerns:'APM Concerns'};
+const PAGE_TITLES={overview:'Portfolio Overview',dashboard:'APM Health Dashboard',customers:'APM Portfolio',incidents:'Incidents',concerns:'APM Concerns'};
 const NO_SELECT=['overview','customers','generic'];
 function showView(view,genericTitle){
   currentView=view;
@@ -770,7 +770,7 @@ function exportCSV(){
     download(toCSV(rows),'portfolio-health-'+today()+'.csv','text/csv;charset=utf-8');
   }else{
     const d=CUST[currentId];const rows=[];
-    rows.push(['APM Relationship Health Report']);
+    rows.push(['APM Health Report']);
     rows.push(['APM',d.name]);rows.push(['Tier',d.tier]);rows.push(['Region',d.region]);
     rows.push(['Account Owner',d.owner]);rows.push(['APM Since',d.since]);rows.push(['Last Updated',d.updated]);
     rows.push(['Health Score',d._score]);rows.push(['Status',band(d._score).label]);
@@ -804,7 +804,7 @@ function exportPDF(){
     doc.save('portfolio-health-'+today()+'.pdf');
   }else{
     const d=CUST[currentId],b=band(d._score),rgb=hexToRgb(b.color);
-    doc.setFont('helvetica','bold');doc.setFontSize(18);doc.text('APM Relationship Health Report',M,y);
+    doc.setFont('helvetica','bold');doc.setFontSize(18);doc.text('APM Health Report',M,y);
     doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(120);doc.text(d.name+'  ·  '+gen,M,y+20);doc.setTextColor(0);
     y+=46;
     doc.setFont('helvetica','bold');doc.setFontSize(36);doc.setTextColor(rgb[0],rgb[1],rgb[2]);doc.text(String(d._score),M,y+8);
@@ -951,7 +951,7 @@ load();
   <div class="chat-hd">
     <div class="av"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 015 5v1a5 5 0 01-10 0V7a5 5 0 015-5z"/><path d="M4 21a8 8 0 0116 0"/></svg></div>
     <div>
-      <h4>Relationship Assistant</h4>
+      <h4>APM Assistant</h4>
       <div class="st"><span class="dot"></span>Answers from your live dashboard data</div>
     </div>
     <button class="x" id="chatClose" aria-label="Close">&times;</button>
@@ -1050,7 +1050,7 @@ load();
     // ---- single-customer intents (about `c`) ----
     const who = named ? c.name : "the currently selected APM, "+c.name;
     // sub-score
-    const subMap=[['product satisfaction','Product Satisfaction'],['support','Support Experience'],['service','Service Reliability'],['reliability','Service Reliability'],['implementation','Implementation Success'],['value','Value Realization'],['relationship','Relationship Strength']];
+    const subMap=[['product satisfaction','Product Satisfaction'],['support','Support Experience'],['service','Service Reliability'],['reliability','Service Reliability'],['implementation','Implementation Success'],['value','Value Realization'],['relationship','Account Strength'],['account strength','Account Strength']];
     for(const [kw,label] of subMap){
       if(q.includes(kw) && /(score|sub|rating|how|what)/.test(q)){
         const row=(c.breakdown||[]).find(r=>r[0]===label);
@@ -1158,7 +1158,7 @@ load();
     panel.classList.add('open'); fab.style.display='none';
     if(!greeted){ greeted=true;
       const c=CUST[currentId];
-      addMsg("Hi! I'm your Relationship Assistant. I can answer questions about <b>"+esc(c?c.name:'the selected APM')+"</b> or the whole portfolio — using the live dashboard data. What would you like to know?",'bot');
+      addMsg("Hi! I'm your APM Assistant. I can answer questions about <b>"+esc(c?c.name:'the selected APM')+"</b> or the whole portfolio — using the live dashboard data. What would you like to know?",'bot');
       renderSugg();
     }
     setTimeout(()=>input.focus(),200);

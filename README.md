@@ -6,8 +6,14 @@ It is a self-contained `dashboard.html` that reads its data from an external `da
 
 **▶ Live demo: <https://anoopnair-aipm.github.io/apm-health-portal/>**
 
-> This is a separate, standalone deployment. The original bank-name portal lives at
-> <https://anoopnair-aipm.github.io/customer-relationship-health/> and is unaffected.
+### Related site
+
+This is a separate, standalone deployment. Its companion is the original bank-name portal:
+
+- 🏦 **Banks version** — the original Customer Relationship Health portal, with real bank names (and a Bankers/APM toggle).
+  Live: <https://anoopnair-aipm.github.io/customer-relationship-health/> · Repo: <https://github.com/anoopnair-aipm/customer-relationship-health>
+
+The two sites are fully independent — separate repos, separate deployments.
 
 ---
 

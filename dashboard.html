@@ -1096,7 +1096,7 @@ load();
       // pick target contact: account owner by default, or a named role
       let person=null, role='Account Executive';
       const contacts=c.contacts||[];
-      if(/(success manager|csm)/.test(q)) role='Customer Success Manager';
+      if(/(success manager|csm)/.test(q)) role='APM Success Manager';
       else if(/(technical|tam)/.test(q)) role='Technical Account Manager';
       person=contacts.find(k=>k[1]===role) || contacts.find(k=>k[0]===c.owner) || contacts[0];
       if(person){
